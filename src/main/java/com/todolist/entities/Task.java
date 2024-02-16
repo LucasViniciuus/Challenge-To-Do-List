@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
@@ -13,12 +15,16 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
     private int id;
+    @NotBlank
     private String taskName;
+    @NotBlank
     private String description;
+    @NotNull
     private int priority;
+    @NotNull
     private Date dateTask;
+    @NotNull
     private boolean accomplishedTask;
 
     public Task(String taskName, String description, int priority, Date dateTask, boolean accomplishedTask) {
@@ -61,15 +67,15 @@ public class Task {
         this.priority = priority;
     }
 
-    public void setDateTask(Date dateTask){
+    public void setDateTask(Date dateTask) {
         this.dateTask = dateTask;
     }
 
-    public Date getDateTask(){
+    public Date getDateTask() {
         return dateTask;
     }
 
-    public boolean isAccomplishedTask() {
+    public boolean getAccomplishedTask() {
         return accomplishedTask;
     }
 
